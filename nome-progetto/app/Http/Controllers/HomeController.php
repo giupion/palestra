@@ -1,15 +1,19 @@
 <?php
 
+// HomeController.php
+
+// HomeController.php
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Activity;
+use App\Models\Course;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $activities = Activity::all(); // Otteniamo tutte le attività disponibili
-        return view('home', compact('activities'));
+        $courses = Course::with('activities')->get();
+        return view('home', compact('courses'));
     }
 }
+

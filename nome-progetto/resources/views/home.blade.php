@@ -1,16 +1,31 @@
+<!-- home.blade.php -->
+
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
-        <h1>Attività Disponibili</h1>
-        @foreach ($activities as $activity)
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $activity->name }}</h5>
-                    <p class="card-text">{{ $activity->description }}</p>
-                    <p class="card-text">Orari Disponibili: {{ $activity->schedule }}</p>
-                </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Lista Attività</h1>
+                @foreach ($courses as $course)
+                    <div class="card mb-4">
+                        <div class="card-header">{{ $course->name }}</div>
+                        <div class="card-body">
+                            <p class="card-text">{{ $course->description }}</p>
+                            <ul>
+                                @foreach ($course->activities as $activity)
+                                    <li>{{ $activity->name }} - {{ $activity->schedule }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
+            <div class="col-md-6">
+                <h1>Lista Corsi</h1>
+                <!-- Inserisci qui il codice per la lista dei corsi -->
+            </div>
+        </div>
     </div>
 @endsection
+
