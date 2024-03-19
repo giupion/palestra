@@ -1,32 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ProfileController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Rotte per l'autenticazione
+// Rotte pubbliche
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 
 // Rotte protette dall'autenticazione
 Route::middleware(['auth'])->group(function () {
-    // Rotte per le attività
-    Route::get('/activities', 'ActivityController@index')->name('activities.index');
-    // Rotte per le prenotazioni
-    Route::get('/bookings/create/{id}', 'BookingController@create')->name('bookings.create');
-    Route::post('/bookings', 'BookingController@store')->name('bookings.store');
-    // Rotte per il profilo utente
-    Route::get('/profile', 'UserController@profile')->name('profile');
-    // Rotte per la gestione delle prenotazioni (amministratori)
-    Route::get('/bookings', 'BookingController@index')->name('bookings.index'); // Mostra tutte le prenotazioni
-    Route::delete('/bookings/{id}', 'BookingController@destroy')->name('bookings.destroy'); // Cancella una prenotazione
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/activities', [HomeController::class, 'activities'])->name('activities');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+    Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 });
-
-
-use App\Http\Controllers\AuthController;
-
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-
