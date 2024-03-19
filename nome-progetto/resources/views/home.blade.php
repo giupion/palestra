@@ -23,9 +23,14 @@
             </div>
             <div class="col-md-6">
                 <h1>Lista Corsi</h1>
-                <!-- Inserisci qui il codice per la lista dei corsi -->
+                <ul class="list-group">
+                    @foreach ($courses as $course)
+                        <li class="list-group-item">
+                            {{ $course->name }} - {{ $course->schedule }}
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
 @endsection
-
