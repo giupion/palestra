@@ -9,7 +9,8 @@
                 <div class="card-header">{{ $course->name }}</div>
                 <div class="card-body">
     <p><strong>Descrizione:</strong> {{ $course->description }}</p>
-    <p><strong>Orari Disponibili:</strong> {{ $course->schedule }}</p>
+    <p><strong>Orari Disponibili:</strong> {{ \Carbon\Carbon::parse($course->schedule)->format('d/m/Y H:i') }}</p>
+
     <a href="{{ route('bookings.create', $course->id) }}" class="btn btn-primary">Prenota</a>
 </div>
 
