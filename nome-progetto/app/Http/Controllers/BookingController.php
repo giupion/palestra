@@ -35,3 +35,4 @@ class BookingController extends Controller
         return redirect()->route('activities.index')->with('success', 'Prenotazione effettuata con successo!');
     }
 }
+

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -14,7 +15,11 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/activities', [HomeController::class, 'activities'])->name('activities');
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+    Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
     Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+    Route::get('/bookings/create/{id}', [BookingController::class, 'create'])->name('bookings.create');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+    Route::get('/activities', [ActivityController::class, 'index'])->name('activities.index');
 });
+

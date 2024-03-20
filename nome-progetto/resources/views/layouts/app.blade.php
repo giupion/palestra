@@ -14,7 +14,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">Nome Applicazione</a>
+                <a class="navbar-brand" href="{{ url('/') }}">GIMMY</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -29,6 +29,7 @@
                             </li>
                         @else
                             <li class="nav-item">
+                                
                                 <a class="nav-link" href="{{ route('profile') }}">Profilo</a>
                             </li>
                             <li class="nav-item">

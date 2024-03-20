@@ -5,6 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+            <a href="{{ route('activities.index') }}" class="btn btn-primary">Alle Prenotazioni</a>
+
                 <h1>Lista Corsi con Attività</h1>
                 @foreach ($courses as $course)
                     @if ($course->activities->count() > 0)
