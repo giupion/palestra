@@ -1,4 +1,4 @@
-<!-- resources/views/activities.blade.php -->
+<!-- resources/views/activities.blade.php da fare admin Gli utenti devono poter annullare una prenotazione di un corso. 2. Gli amministratori della palestra devono poter visualizzare tutte le prenotazioni effettuate dagli utenti e gestirle (accettare, respingere o cancellare). -->
 @extends('layouts.app')
 
 @section('content')
