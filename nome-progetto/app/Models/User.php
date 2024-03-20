@@ -21,9 +21,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Implementazione del metodo getAuthIdentifierName
-    public function getAuthIdentifierName()
+    public function bookings()
     {
-        return 'id';
+        return $this->hasMany(Booking::class);
     }
 }
