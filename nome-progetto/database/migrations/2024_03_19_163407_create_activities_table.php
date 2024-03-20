@@ -11,7 +11,7 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('schedule');
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

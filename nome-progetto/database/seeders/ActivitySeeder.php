@@ -14,17 +14,45 @@ class ActivitySeeder extends Seeder
 
         if ($course) { // Verifica se il corso è stato recuperato correttamente
             Activity::create([
-                'name' => 'Yoga',
-                'description' => 'Practice yoga for physical and mental well-being.',
-                'schedule' => 'Monday 10:00 AM - 11:00 AM',
-                'course_id' => $course->id, // Assegna l'ID del corso alla nuova attività
+                'name' => 'Yoga Flow',
+                'description' => 'Sessione di Yoga che combina movimenti fluidi e respirazione consapevole',
+                'schedule' => 'Lunedì e Mercoledì, 18:00 - 19:00',
+                'course_id' => 2, // Collega l'attività al corso di Yoga
             ]);
-
+    
             Activity::create([
-                'name' => 'Pilates',
-                'description' => 'Strengthen your core and improve flexibility with Pilates exercises.',
-                'schedule' => 'Wednesday 5:00 PM - 6:00 PM',
-                'course_id' => $course->id, // Assegna l'ID del corso alla nuova attività
+                'name' => 'Pilates Matwork',
+                'description' => 'Allenamento di Pilates sul tappetino per migliorare la forza e la postura',
+                'schedule' => 'Martedì e Giovedì, 10:00 - 11:00',
+                'course_id' => 1, // Collega l'attività al corso di Pilates
+            ]);
+    
+            Activity::create([
+                'name' => 'Jujitsu Techniques',
+                'description' => 'Lezioni pratiche su varie tecniche di Jujitsu per la difesa personale',
+                'schedule' => 'Martedì e Venerdì, 19:00 - 20:30',
+                'course_id' => 3, // Collega l'attività al corso di Jujitsu
+            ]);
+    
+            Activity::create([
+                'name' => 'Taekwondo Sparring',
+                'description' => 'Allenamento pratico di Taekwondo che include sessioni di combattimento simulato',
+                'schedule' => 'Mercoledì e Sabato, 17:30 - 19:00',
+                'course_id' => 4, // Collega l'attività al corso di Taekwondo
+            ]);
+    
+            Activity::create([
+                'name' => 'Aerobic Dance',
+                'description' => 'Sessioni di danza aerobica ad alta intensità per il miglioramento della resistenza cardiovascolare',
+                'schedule' => 'Lunedì, Mercoledì e Venerdì, 20:00 - 21:00',
+                'course_id' => 5, // Collega l'attività al corso di Aerobica
+            ]);
+    
+            Activity::create([
+                'name' => 'Bodybuilding Workout',
+                'description' => 'Sessioni di allenamento focalizzate sullo sviluppo muscolare e la definizione del corpo',
+                'schedule' => 'Lunedì, Martedì, Giovedì e Venerdì, 16:00 - 18:00',
+                'course_id' => 6, // Collega l'attività al corso di Culturismo
             ]);
 
             // Aggiungi altre attività di esempio qui

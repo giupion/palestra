@@ -1,4 +1,3 @@
-<!-- home.blade.php -->
 
 @extends('layouts.app')
 
@@ -6,31 +5,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1>Lista Attività</h1>
+                <h1>Lista Corsi con Attività</h1>
                 @foreach ($courses as $course)
-                    <div class="card mb-4">
-                        <div class="card-header">{{ $course->name }}</div>
-                        <div class="card-body">
-                            <p class="card-text">{{ $course->description }}</p>
-                            <ul>
-                                @foreach ($course->activities as $activity)
-                                    <li>{{ $activity->name }} - {{ $activity->schedule }}</li>
-                                @endforeach
-                            </ul>
+                    @if ($course->activities->count() > 0)
+                        <div class="card mb-4">
+                            <div class="card-header">{{ $course->name }}</div>
+                            <div class="card-body">
+                                <p class="card-text">{{ $course->description }}</p>
+                                <h3>Attività associate:</h3>
+                                <ul>
+                                    @foreach ($course->activities as $activity)
+                                        <li>{{ $activity->name }} - {{ $activity->schedule }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
-            </div>
-            <div class="col-md-6">
-                <h1>Lista Corsi</h1>
-                <ul class="list-group">
-                    @foreach ($courses as $course)
-                        <li class="list-group-item">
-                            {{ $course->name }} - {{ $course->schedule }}
-                        </li>
-                    @endforeach
-                </ul>
             </div>
         </div>
     </div>
 @endsection
+

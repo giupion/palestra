@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +11,6 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('schedule'); // Orari disponibili, potrebbe essere una stringa o un array
             $table->timestamps();
         });
     }
@@ -22,3 +20,5 @@ class CreateCoursesTable extends Migration
         Schema::dropIfExists('courses');
     }
 }
+
+

@@ -1,8 +1,9 @@
 <?php
+namespace Database\Seeders; // Correzione del namespace
 
-// CourseSeeder.php
-namespace Database\Seeders;
 
+// database/seeders/CourseSeeder.php
+// database/seeders/CourseSeeder.php
 use Illuminate\Database\Seeder;
 use App\Models\Course;
 
@@ -10,17 +11,35 @@ class CourseSeeder extends Seeder
 {
     public function run()
     {
+        // Creazione dei corsi
         Course::create([
-            'name' => 'Beginner Yoga Course',
-            'description' => 'Introduction to basic yoga poses and breathing techniques.',
-            'schedule' => 'Monday 9:00 AM - 18:00 AM',]);
+            'name' => 'Pilates',
+            'description' => 'Corso per migliorare la flessibilità e la forza muscolare',
+        ]);
 
         Course::create([
-            'name' => 'Advanced Pilates Course',
-            'description' => 'Advanced Pilates workout for experienced practitioners.',
-            'schedule' => 'Wednesday 9:00 PM - 15:00 PM', ]);
+            'name' => 'Yoga',
+            'description' => 'Corso per il rilassamento e il benessere mentale e fisico',
+        ]);
 
-        // Aggiungi altri corsi di esempio qui
+        Course::create([
+            'name' => 'Jujitsu',
+            'description' => 'Corso di arti marziali giapponesi focalizzato sulla difesa personale e le tecniche di lotta a terra',
+        ]);
+
+        Course::create([
+            'name' => 'Taekwondo',
+            'description' => 'Corso di arti marziali coreane che si concentra sui calci ad alta potenza e la padronanza del corpo',
+        ]);
+
+        Course::create([
+            'name' => 'Aerobica',
+            'description' => 'Sessioni di fitness ad alto impatto che combinano movimenti aerobici con musica ritmata per bruciare calorie e migliorare la resistenza',
+        ]);
+
+        Course::create([
+            'name' => 'Culturismo',
+            'description' => 'Programma di allenamento per lo sviluppo della massa muscolare e della definizione attraverso l\'uso di pesi e attrezzature di sollevamento',
+        ]);
     }
 }
-
