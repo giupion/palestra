@@ -1,30 +1,30 @@
-
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
+        <h1>Lista Corsi con Attività</h1>
         <div class="row">
-            <div class="col-md-6">
-            <a href="{{ route('activities.index') }}" class="btn btn-primary">Alle Prenotazioni</a>
-
-                <h1>Lista Corsi con Attività</h1>
-                @foreach ($courses as $course)
-                    @if ($course->activities->count() > 0)
-                        <div class="card mb-4">
+            @foreach ($courses as $course)
+                @if ($course->activities->count() > 0)
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
                             <div class="card-header">{{ $course->name }}</div>
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column align-items-start">
                                 <p class="card-text">{{ $course->description }}</p>
                                 <h3>Attività associate:</h3>
-                                <ul>
+                                <ul class="list-unstyled"> <!-- Rimuove il puntino dalla lista -->
                                     @foreach ($course->activities as $activity)
                                         <li>{{ $activity->name }} - {{ $activity->schedule }}</li>
                                     @endforeach
                                 </ul>
                             </div>
+                            <div class="card-footer">
+                                <a href="{{ route('bookings.create', $course->id) }}" class="btn btn-primary">Prenota</a>
+                            </div>
                         </div>
-                    @endif
-                @endforeach
-            </div>
+                    </div>
+                @endif
+            @endforeach
         </div>
     </div>
 @endsection
