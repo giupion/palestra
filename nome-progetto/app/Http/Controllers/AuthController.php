@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
+    public function __construct()
+{
+    $this->middleware('guest')->except('logout');
+    $this->middleware('redirectIfAdmin')->only('showLoginForm', 'login');
+}
     protected function authenticated(Request $request, $user)
     {
         if ($user->isAdmin()) {
@@ -73,7 +79,9 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        return redirect('/');
+    
+        // Reindirizza l'utente alla dashboard admin dopo il logout
+        return redirect()->route('admin.dashboard');
     }
+    
 }
