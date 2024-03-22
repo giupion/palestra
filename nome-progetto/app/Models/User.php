@@ -10,7 +10,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role', // Aggiungi 'role' alla lista dei campi fillable
     ];
 
     protected $hidden = [
@@ -25,4 +25,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function isAdmin()
+    { dd($this->role);
+        return $this->role === 'admin';
+    }
+    
 }
