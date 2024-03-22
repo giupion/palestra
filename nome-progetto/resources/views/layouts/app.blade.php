@@ -35,6 +35,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('profile') }}">Profilo-corsi Prenotati</a>
                         </li>
+                        
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf

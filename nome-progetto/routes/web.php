@@ -7,12 +7,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
 
-// Rotte per l'autenticazione
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+
+Route::middleware(['redirectIfAdmin'])->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+});
+
 
 // Rotte accessibili solo agli utenti autenticati
 Route::middleware(['auth'])->group(function () {
