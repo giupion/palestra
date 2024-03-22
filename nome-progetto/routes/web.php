@@ -11,7 +11,7 @@ use App\Http\Controllers\ProfileController;
 Route::middleware(['redirectIfAdmin'])->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+   
     Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [AuthController::class, 'register']);
 });
@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bookings/create/{id}', [BookingController::class, 'create'])->name('bookings.create');
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/activities', [ActivityController::class, 'index'])->name('activities.index');
-});
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');});
 
 // Rotte accessibili solo agli amministratori
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
