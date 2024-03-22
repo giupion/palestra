@@ -22,7 +22,7 @@
                         <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('activities.index') }}">Activities</a>
+                        <a class="nav-link" href="{{ route('activities.index') }}">Attività</a>
                     </li>
                     @guest
                         <li class="nav-item">
@@ -33,7 +33,7 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                            <a class="nav-link" href="{{ route('profile') }}">Profilo-corsi Prenotati</a>
                         </li>
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">

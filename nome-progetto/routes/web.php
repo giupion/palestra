@@ -23,3 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/activities', [ActivityController::class, 'index'])->name('activities.index');
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/bookings', [BookingController::class, 'adminIndex'])->name('admin.bookings.index');
+    Route::post('/admin/bookings/{booking}/accept', [BookingController::class, 'accept'])->name('admin.bookings.accept');
+    Route::post('/admin/bookings/{booking}/reject', [BookingController::class, 'reject'])->name('admin.bookings.reject');
+});
